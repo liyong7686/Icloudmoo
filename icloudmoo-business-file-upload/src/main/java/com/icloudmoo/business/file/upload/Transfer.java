@@ -4,8 +4,8 @@ import org.apache.log4j.Logger;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * TODO:图片服务器，启动类
- * @author liyong
+ * TODO:图片服务器，  启动类  
+ * @author liyong  
  * @Date 2015年12月22日 下午2:11:35
  */
 public class Transfer {
