@@ -2,7 +2,7 @@ package com.icloudmoo.business.msg.exception;
 
 /**
  * TODO:
- * @author liyong
+ * @author liyong222
  * @Date 2015年12月18日 下午4:54:06
  */
 public class MessageSendException extends Exception{
