@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                     http://www.springframework.org/schema/context
+                     http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                     http://www.springframework.org/schema/aop
+                     http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+                     http://www.springframework.org/schema/tx
+                     http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+                     http://www.springframework.org/schema/cache 
+                     http://www.springframework.org/schema/cache/spring-cache-4.0.xsd
+                     ">
+
+	<context:component-scan base-package="com.icloudmoo,
+	                          com.icloudmoo.home.async.msg.center" />
+
+    <!-- 缓存服务器 -->
+	<import resource="spring-redis.xml" />
+	
+	<!--数据源datasource配置 -->
+	<import resource="jdbc-context.xml" />
+
+	<!--数据库事务配置 -->
+	<import resource="transaction-context.xml" />
+
+	<!--jms  -->
+	<import resource="spring-jms.xml" />
+
+    <!-- 定时器功能 -->	
+	<!-- import resource="spring-quartz.xml" / -->
+</beans>

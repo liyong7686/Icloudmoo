@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+	<!--在这里定义web和app公用的服务对象和服务资源,例如数据源,jndi等-->
+<beans>
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<description>datasource config</description>
+			<value>classpath:context-datasource.properties</value>
+		</property>
+	</bean>
+	
+	<bean id="platformTomcat" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass">
+			<value>${workDesk.jdbc.driverclass}</value>
+		</property>
+		<property name="jdbcUrl">
+			<value>${workDesk.jdbc.url}</value>
+		</property>
+		<property name="user">
+			<value>${workDesk.jdbc.username}</value>
+		</property>
+		<property name="password">
+			<value>${workDesk.jdbc.password}</value>
+		</property>
+		<property name="maxPoolSize">
+			<value>${workDesk.jdbc.poolsize.max}</value>
+		</property>
+		<property name="minPoolSize">
+			<value>${workDesk.jdbc.poolsize.min}</value>
+		</property>
+		<property name="initialPoolSize">
+			<value>${workDesk.jdbc.poolsize.initial}</value>
+		</property>
+		<property name="testConnectionOnCheckin">
+		<value>true</value>
+		</property>
+		<property name="preferredTestQuery">
+		<value>SELECT 1</value>
+		</property>
+		<property name="idleConnectionTestPeriod">
+		<value>18000</value>
+		</property>
+	</bean>
+	
+	
+		<bean id="platformReadTomcat" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass">
+			<value>${workDesk.read.jdbc.driverclass}</value>
+		</property>
+		<property name="jdbcUrl">
+			<value>${workDesk.read.jdbc.url}</value>
+		</property>
+		<property name="user">
+			<value>${workDesk.read.jdbc.username}</value>
+		</property>
+		<property name="password">
+			<value>${workDesk.read.jdbc.password}</value>
+		</property>
+		<property name="maxPoolSize">
+			<value>${workDesk.read.jdbc.poolsize.max}</value>
+		</property>
+		<property name="minPoolSize">
+			<value>${workDesk.read.jdbc.poolsize.min}</value>
+		</property>
+		<property name="initialPoolSize">
+			<value>${workDesk.read.jdbc.poolsize.initial}</value>
+		</property>
+		<property name="testConnectionOnCheckin">
+		<value>true</value>
+		</property>
+		<property name="preferredTestQuery">
+		<value>SELECT 1</value>
+		</property>
+		<property name="idleConnectionTestPeriod">
+		<value>18000</value>
+		</property>
+	</bean>
+</beans>

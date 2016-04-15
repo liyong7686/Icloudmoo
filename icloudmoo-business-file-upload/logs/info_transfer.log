@@ -1,0 +1,3 @@
+[INFO ] [2015-12-22 14:37:10 236] org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@6d9c638: startup date [Tue Dec 22 14:37:10 CST 2015]; root of context hierarchy
+[INFO ] [2015-12-22 14:37:10 346] org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [applicationContext.xml]
+[INFO ] [2015-12-22 14:37:11 712] com.icloudmoo.business.file.upload.netty.NettyNIOServer - ==============图片服务器启动完成=============

@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.icloudmoo</groupId>
+    <artifactId>Icloudmoo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.icloudmoo</groupId>
+  <artifactId>icloudmoo-home-manager-web</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>icloudmoo-home-manager-web</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+	  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+  <dependencies>
+  
+        <dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icloudmoo-common-jms-suport</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icloudmoo-business-asyncc-msg-center</artifactId>
+			<version>${project.version}</version>
+		</dependency>		
+		
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icloudmoo-common-redis-suport</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+  
+        <dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icloudmoo-home-user-controller</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code</groupId>
+			<artifactId>kaptcha</artifactId>
+		</dependency>
+    
+  </dependencies>
+  <build>
+    <plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<webResources>
+						<resource>
+							<directory>${basedir}/src/main/resources</directory>
+							<targetPath>WEB-INF/classes</targetPath>
+						</resource>
+						<resource>
+							<directory>../icloudmoo-libs</directory>
+							<targetPath>WEB-INF/lib</targetPath>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+		</plugins>
+    <finalName>icloudmoo-home-manager-web</finalName>
+  </build>
+</project>

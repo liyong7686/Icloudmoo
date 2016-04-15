@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.2.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+
+	<!-- 启用注解支持 -->
+	<context:component-scan base-package="com.icloudmoo.business.web.intercepter,com.icloudmoo.business.payment.controller" />
+
+
+	<!-- 启用mvc驱动 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>application/json;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+			<!--自定义 返回参数进行加密 处理 -->
+			<bean class="com.icloudmoo.common.controller.databind.EncryptMessageConverter" />
+		</mvc:message-converters>
+		<mvc:argument-resolvers>
+		    <!-- 自定义请求参数进行加密处理  -->
+			<bean class="com.icloudmoo.common.controller.databind.EncryptRequestResolver" />
+		</mvc:argument-resolvers>
+	</mvc:annotation-driven>
+
+	<!-- 拦截器配置 -->
+	<mvc:interceptors>
+        <bean class="com.icloudmoo.business.web.intercepter.SystemAccessInterceper" />
+    </mvc:interceptors>
+     
+     <!-- model 类型映射回来的，前缀和后缀名称 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="../jsp/" p:suffix=".jsp" />
+
+</beans>

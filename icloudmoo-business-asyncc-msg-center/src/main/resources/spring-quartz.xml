@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                     http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                     ">
+	<!-- 定义调用对象和调用对象的方法 -->
+	<bean id="activityBeginingScheduleTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject">
+			<ref bean="activityBeginingSchedule" />
+		</property>
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+	</bean>
+
+	<bean id="couponExpireScheduleTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject">
+			<ref bean="couponExpireSchedule" />
+		</property>
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+	</bean>
+
+	<bean id="autoReleasePayInfoScheduleTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject">
+			<ref bean="autoReleasePayInfoSchedule" />
+		</property>
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+	</bean>
+
+	<bean id="acceptTimeOutWorkOrderScheduleTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject">
+			<ref bean="acceptTimeOutWorkOrderSchedule" />
+		</property>
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+	</bean>
+
+	<bean id="autoCloseWorkOrderScheduleTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject">
+			<ref bean="autoCloseWorkOrderSchedule" />
+		</property>
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+	</bean>
+
+
+	<bean id="closeTimeOutWorkOrderScheduleTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject">
+			<ref bean="closeTimeOutWorkOrderSchedule" />
+		</property>
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+	</bean>
+
+	<bean id="dealTimeOutWorkOrderScheduleTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject">
+			<ref bean="dealTimeOutWorkOrderSchedule" />
+		</property>
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+	</bean>
+
+	<bean id="finishTimeOutWorkOrderScheduleTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject">
+			<ref bean="finishTimeOutWorkOrderSchedule" />
+		</property>
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+	</bean>
+
+	<bean id="reDispatchWorkOrderScheduleTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject">
+			<ref bean="reDispatchWorkOrderSchedule" />
+		</property>
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+	</bean>
+
+
+	<bean id="reportGenerateWorkOrderScheduleTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 调用的类 -->
+		<property name="targetObject">
+			<ref bean="reportGenerateWorkOrderSchedule" />
+		</property>
+		<!-- 调用类中的方法 -->
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+	</bean>
+
+
+	<bean id="activityBeginingScheduleTaskDoTime"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="activityBeginingScheduleTask" />
+		</property>
+		<!-- cron表达式 -->
+		<property name="cronExpression">
+			<value>0 0 21 * * ?</value>
+		</property>
+	</bean>
+
+	<bean id="acceptTimeOutWorkOrderScheduleDoTime"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="acceptTimeOutWorkOrderScheduleTask" />
+		</property>
+		<!-- cron表达式 -->
+		<property name="cronExpression">
+			<value>0 0/20 * * * ?</value>
+		</property>
+	</bean>
+
+	<bean id="autoReleasePayInfoScheduleDoTime"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="autoReleasePayInfoScheduleTask" />
+		</property>
+		<!-- cron表达式 -->
+		<property name="cronExpression">
+			<value>0 0/30 * * * ?</value>
+		</property>
+	</bean>
+	
+	<bean id="couponExpireScheduleTaskDoTime"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="couponExpireScheduleTask" />
+		</property>
+		<!-- cron表达式 -->
+		<property name="cronExpression">
+			<value>0 30 9 * * ?</value>
+		</property>
+	</bean>
+
+	<bean id="autoCloseWorkOrderScheduleDoTime"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="autoCloseWorkOrderScheduleTask" />
+		</property>
+		<!-- cron表达式 -->
+		<property name="cronExpression">
+			<value>00 00 00 * * ?</value>
+		</property>
+	</bean>
+
+
+	<bean id="closeTimeOutWorkOrderScheduleDoTime"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="closeTimeOutWorkOrderScheduleTask" />
+		</property>
+		<!-- cron表达式 -->
+		<property name="cronExpression">
+			<value>00 30 00 * * ?</value>
+		</property>
+	</bean>
+
+
+
+
+	<bean id="dealTimeOutWorkOrderScheduleTaskDoTime"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="dealTimeOutWorkOrderScheduleTask" />
+		</property>
+		<!-- cron表达式 -->
+		<property name="cronExpression">
+			<value>0 0/15 * * * ?</value>
+		</property>
+	</bean>
+
+	<bean id="finishTimeOutWorkOrderScheduleDoTime"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="finishTimeOutWorkOrderScheduleTask" />
+		</property>
+		<!-- cron表达式 -->
+		<property name="cronExpression">
+			<value>0 46 15 * * ?</value>
+		</property>
+	</bean>
+
+	<bean id="reDispatchWorkOrderScheduleDoTime"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="reDispatchWorkOrderScheduleTask" />
+		</property>
+		<!-- cron表达式 -->
+		<property name="cronExpression">
+			<value>0 0/5 * * * ?</value>
+		</property>
+	</bean>
+
+	<bean id="reportGenerateWorkOrderScheduleDoTime"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="reportGenerateWorkOrderScheduleTask" />
+		</property>
+		<!-- cron表达式 -->
+		<property name="cronExpression">
+			<value>0 0/10 * * * ?</value>
+		</property>
+	</bean>
+
+
+
+	<!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序 -->
+	<bean id="startQuertz" lazy-init="false" autowire="no"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="activityBeginingScheduleTaskDoTime" />
+				<ref bean="couponExpireScheduleTaskDoTime" />
+				<ref bean="autoReleasePayInfoScheduleDoTime"/>
+				<ref bean="acceptTimeOutWorkOrderScheduleDoTime" />
+				<ref bean="autoCloseWorkOrderScheduleDoTime" />
+				 <ref bean="closeTimeOutWorkOrderScheduleDoTime" />
+				 <ref bean="dealTimeOutWorkOrderScheduleTaskDoTime" /> 
+				 <ref bean="finishTimeOutWorkOrderScheduleDoTime" />
+				 <ref bean="reDispatchWorkOrderScheduleDoTime" /> 
+				 <ref bean="reportGenerateWorkOrderScheduleDoTime" />
+			</list>
+		</property>
+	</bean>
+</beans>

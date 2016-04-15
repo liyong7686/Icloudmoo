@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.icloudmoo</groupId>
+    <artifactId>Icloudmoo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>icloudmoo-business-asyncc-msg-center</artifactId>
+  <name>icloudmoo-business-asyncc-msg-center</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+        <dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icloudmoo-common-jms-suport</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icloudmoo-common-redis-suport</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+
+		<!-- dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>ghome-common-coupon-bo</artifactId>
+			<version>${project.version}</version>
+		</dependency -->
+		
+		<!-- dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>ghome-common-activity-bo</artifactId>
+			<version>${project.version}</version>
+		</dependency-->
+
+		<!-- dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>enjoylink-business-payment-bo</artifactId>
+			<version>${project.version}</version>
+		</dependency-->
+
+		<!-- dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>gmc-common-bo</artifactId>
+			<version>${project.version}</version>
+		</dependency-->
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icloudmoo-business-msg</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>ghome-common-user-bo</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>gmap-common-employee-bo</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>gdc-common-workflow-bo</artifactId>
+			<version>${project.version}</version>
+		</dependency -->
+         
+        <dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icloudmoo-home-user-dao</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+        <dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icloudmoo-common-base-dao</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<outputDirectory>
+						${project.build.directory}/publish/lib
+					</outputDirectory>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>com.icloudmoo.home.async.msg.center.Start.Main</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>install</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>
+								${project.build.directory}/publish/lib
+							</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<outputDirectory>${project.build.directory}/publish/config</outputDirectory>
+					<resources>
+						<resource>
+							<directory>${basedir}/src/main/resources</directory>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+
+		</plugins>
+        <finalName>icloudmoo-common-async-msg-center</finalName>
+  </build>
+</project>

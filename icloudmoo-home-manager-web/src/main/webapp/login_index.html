@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台登录入口</title>
+
+<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="js/md5.js"></script>
+<script type="text/javascript" src="js/json2.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+</head>
+
+<body>
+
+	<!--登录内容-->
+
+	    <p class="dl_title">登录入口</p>
+
+		<input type="text" value="请输入用户名" name="account" onclick="Login.clearValue(this, false);" /><br/><br/>
+	
+		<input type="password" value="" name="password" onclick="Login.clearValue(this, true);" /><br/><br/>
+	
+		<input type="text" name="validateCode" onkeypress="if(event.keyCode == 13){Login.loginEnhome();}"  /><br/><br/>
+		
+		<a href="#"><img width="99" height="42" id="validCodeImg" onclick="Login.refreshValidCode();" src="code/getKaptchaImage.do" /></a>
+		
+		<a href="javascript:Login.refreshValidCode();">看不清，换一种</a><br/><br/>
+		
+	
+	   <div class="login_bottom" onclick="Login.loginEnhome();">
+		  <a href="#">登 录</a>
+	   </div>
+	   
+	   <br/>
+	   <br/>
+		
+</body>
+</html>

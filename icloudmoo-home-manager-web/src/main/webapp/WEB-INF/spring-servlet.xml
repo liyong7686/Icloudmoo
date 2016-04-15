@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.2.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+
+	<!-- 启用注解支持 -->
+	<context:component-scan
+		base-package="com.icloudmoo.home.*.controller,
+		              com.icloudmoo.home.manager.intercepter,
+		              com.icloudmoo.home.async.msg.center.listener,
+		              com.icloudmoo.user.controller" />
+
+	<!-- 启用mvc驱动 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+		    <!-- 将StringHttpMessageConverter的默认编码设为UTF-8 -->
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>application/json;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+			<!-- 将Jackson2HttpMessageConverter的默认格式化输出设为true --> 
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+			
+			<!-- 自定义返回数据加密方法 -->
+			<!-- bean class="com.gemdale.gmap.common.controller.databind.EncryptMessageConverter" / -->
+			
+		</mvc:message-converters>
+		
+		<!-- 自定义请求数据时加密方法 -->
+		<!-- mvc:argument-resolvers>
+			   <bean class="com.gemdale.gmap.common.controller.databind.EncryptRequestResolver" />
+		   </mvc:argument-resolvers -->
+		
+	</mvc:annotation-driven>
+
+	<!-- 拦截器配置  主要作用用来判断登陆检查-->
+	<mvc:interceptors>
+		<bean class="com.icloudmoo.home.manager.intercepter.SystemAccessInterceper" />
+	</mvc:interceptors>
+	
+	<!-- 支持文件上传 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+    <!-- 对模型视图名称的解析，即在模型视图名称添加   前 后  缀 -->      
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/jsp/" p:suffix=".jsp" />
+
+</beans>

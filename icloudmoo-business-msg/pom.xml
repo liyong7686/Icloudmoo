@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.icloudmoo</groupId>
+    <artifactId>Icloudmoo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>icloudmoo-business-msg</artifactId>
+  <name>icloudmoo-business-msg</name>
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icloudmoo-common-jms-suport</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cn.emay</groupId>
+			<artifactId>emayclient</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.cloopen.rest.sdk</groupId>
+			<artifactId>CCP_REST_SMS_SDK_JAVA</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.protobuf</groupId>
+			<artifactId>protobuf-java</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.gexin.rp.sdk</groupId>
+			<artifactId>gexin-rp-sdk-base</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.gexin.rp.sdk</groupId>
+			<artifactId>gexin-rp-sdk-template</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.gexin.rp.sdk</groupId>
+			<artifactId>gexin-rp-sdk-http</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>

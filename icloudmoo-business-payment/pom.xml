@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.icloudmoo</groupId>
+    <artifactId>Icloudmoo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>icloudmoo-business-payment</artifactId>
+  <name>icloudmoo-business-payment</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+        <dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icloudmoo-common-base-dao</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>enjoylink-business-payment-bo</artifactId>
+			<version>${project.version}</version>
+		</dependency -->
+
+		<!-- dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>ghome-common-coupon-bo</artifactId>
+			<version>${project.version}</version>
+		</dependency -->
+
+		<!-- dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>gdc-common-workflow-bo</artifactId>
+			<version>${project.version}</version>
+		</dependency -->
+
+		<!-- dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>ghome-common-user-bo</artifactId>
+			<version>${project.version}</version>
+		</dependency -->
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>icloudmoo-common-controller-support</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+  </dependencies>
+  <build>
+    <finalName>icloudmoo-business-payment</finalName>
+  </build>
+</project>
