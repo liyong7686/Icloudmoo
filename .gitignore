@@ -5,3 +5,13 @@
 .settings/org.eclipse.m2e.core.prefs
 icloudmoo-business-asyncc-msg-center/.gitignore
 icloudmoo-business-asyncc-msg-center/.settings/.jsdtscope
+icloudmoo-common-base-dao/.gitignore
+icloudmoo-common-controller-support/.gitignore
+icloudmoo-common-jms-suport/.gitignore
+icloudmoo-common/.gitignore
+icloudmoo-common-base-bo/.gitignore
+icloudmoo-common-redis-suport/.gitignore
+icloudmoo-home-manager-web/.gitignore
+icloudmoo-home-user-bo/.gitignore
+icloudmoo-home-user-controller/.gitignore
+icloudmoo-home-user-dao/.gitignore
