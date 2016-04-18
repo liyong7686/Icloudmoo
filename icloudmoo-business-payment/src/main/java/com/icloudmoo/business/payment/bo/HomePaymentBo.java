@@ -14,7 +14,7 @@ import com.icloudmoo.common.bo.AbstractBusinessObject;
 import com.icloudmoo.common.exception.BusinessServiceException;
 
 /**
- * 支付信息
+ * 支付信息         
  * 
  * @author liyong
  * @Date 2015年12月21日 下午3:08:42
